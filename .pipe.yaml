@@ -11,10 +11,10 @@ spec:
       - name: K8S_CANARY_ROLLOUT
         with:
           replicas: 10%
-      # Wait 10 seconds before going to the next stage.
-      - name: WAIT
+      - name: WAIT_APPROVAL
         with:
-          duration: 10s
+          approvers:
+            - jaganikuman
       # Update the workload of PRIMARY variant to the new version.
       - name: K8S_PRIMARY_ROLLOUT
       # Destroy all workloads of CANARY variant.
