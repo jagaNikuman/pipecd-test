@@ -10,10 +10,12 @@ spec:
   selector:
     matchLabels:
       app: nginx
+      pipecd.dev/variant: primary
   template:
     metadata:
       labels:
         app: nginx
+        pipecd.dev/variant: primary
     spec:
       containers:
       - name: nginx
