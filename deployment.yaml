@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.19.3
+        image: argoproj/rollouts-demo:yellow
         ports:
         - containerPort: 80
