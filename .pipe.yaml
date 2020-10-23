@@ -17,26 +17,18 @@ spec:
             - jaganikuman
       - name: K8S_TRAFFIC_ROUTING
         with:
-          primary: 20
-          canary: 70
-      - name: WAIT_APPROVAL
-        with:
-          approvers:
-            - jaganikuman
-      - name: K8S_TRAFFIC_ROUTING
-        with:
-          primary: 50
-          canary: 50
-      - name: WAIT_APPROVAL
-        with:
-          approvers:
-            - jaganikuman
-      - name: K8S_TRAFFIC_ROUTING
-        with:
           primary: 0
           canary: 100
+      - name: WAIT_APPROVAL
+        with:
+          approvers:
+            - jaganikuman
       # Update the workload of PRIMARY variant to the new version.
       - name: K8S_PRIMARY_ROLLOUT
+      - name: WAIT_APPROVAL
+        with:
+          approvers:
+            - jaganikuman
       - name: K8S_TRAFFIC_ROUTING
         with:
           primary: 100
