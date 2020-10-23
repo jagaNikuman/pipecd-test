@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: nginx
+    pipecd.dev/variant: primary
   ports:
     - protocol: TCP
       port: 80
