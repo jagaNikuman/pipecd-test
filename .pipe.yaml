@@ -10,12 +10,36 @@ spec:
       # workload replicas of CANARY variant is 10% of the replicas number of PRIMARY variant.
       - name: K8S_CANARY_ROLLOUT
         with:
-          replicas: 10%
+          replicas: 50%
       - name: WAIT_APPROVAL
         with:
           approvers:
             - jaganikuman
+      - name: K8S_TRAFFIC_ROUTING
+        with:
+          primary: 20
+          canary: 70
+      - name: WAIT_APPROVAL
+        with:
+          approvers:
+            - jaganikuman
+      - name: K8S_TRAFFIC_ROUTING
+        with:
+          primary: 50
+          canary: 50
+      - name: WAIT_APPROVAL
+        with:
+          approvers:
+            - jaganikuman
+      - name: K8S_TRAFFIC_ROUTING
+        with:
+          primary: 0
+          canary: 100
       # Update the workload of PRIMARY variant to the new version.
       - name: K8S_PRIMARY_ROLLOUT
+      - name: K8S_TRAFFIC_ROUTING
+        with:
+          primary: 100
+          canary: 0
       # Destroy all workloads of CANARY variant.
       - name: K8S_CANARY_CLEAN
