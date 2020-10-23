@@ -1,4 +1,4 @@
-namespace: nginx
+namespace: pipecd-test-nginx
 resources:
 - namespace.yaml
 - deployment.yaml
